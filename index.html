@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Web Project Integrity Scanner</title>
+
+    <!-- Font: Noto Sans -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: { sans: ['"Noto Sans"', "ui-sans-serif", "system-ui"] },
+          },
+        },
+      };
+    </script>
+
+    <!-- Import map -->
+    <script type="importmap">
+      {
+        "imports": {
+          "marked": "https://cdn.jsdelivr.net/npm/marked/lib/marked.esm.js",
+          "dompurify": "https://cdn.jsdelivr.net/npm/dompurify/dist/purify.es.min.js",
+          "graphlib": "https://esm.sh/graphlib@2.1.8",
+          "mitt": "https://esm.sh/mitt@3.0.1"
+        }
+      }
+    </script>
+
+    <style>
+      :root { color-scheme: light; }
+      html, body, #app { height: 100%; }
+      body { background: #fff; }
+    </style>
+  </head>
+  <body class="font-sans text-neutral-900 antialiased">
+    <div id="app" class="min-h-full flex flex-col">
+      <header class="border-b">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded bg-neutral-900"></div>
+            <div>
+              <div class="text-lg font-semibold">Web Project Integrity Scanner</div>
+              <div class="text-xs text-neutral-500">SEO + BI selector intelligence</div>
+            </div>
+          </div>
+          <div class="hidden md:flex items-center gap-2">
+            <button id="run-scan" class="px-3 py-2 rounded border hover:bg-neutral-50 transition">Run Scan</button>
+            <button id="open-config" class="px-3 py-2 rounded border hover:bg-neutral-50 transition">Config</button>
+          </div>
+        </div>
+        <nav class="mx-auto max-w-6xl px-2">
+          <div id="tabs" class="flex gap-1 overflow-x-auto pb-1">
+            <!-- Tabs populated by app.js -->
+          </div>
+        </nav>
+      </header>
+
+      <main class="mx-auto max-w-6xl w-full px-4 py-6 grow">
+        <div id="panel-container" class="space-y-6">
+          <!-- Panels populated by app.js -->
+        </div>
+      </main>
+
+      <footer class="border-t">
+        <div class="mx-auto max-w-6xl px-4 py-3 text-xs text-neutral-500 flex justify-between">
+          <div>Mobile-friendly • Tabbed UI • API-ready</div>
+          <div id="status" class="text-neutral-600">Idle</div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
+
